@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/student_manage/">Student Manage System</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">学生信息管理</a> </li>
+
+        </ul>
+        <ul class=" nav navbar-nav navbar-right">
+          <li><a href="#">{{ user }}</a> </li>
+          <li><a href="/logout">退出</a> </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+    <div class="card" style="display: block; padding-top: 80px">
+        <div class="container">
+            <form action="/api/add_student/" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <label for="stuId" class="control-label col-sm-2">学号</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="stuId" type="text" placeholder="请输入学号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="stuName" class="control-label col-sm-2">姓名</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="stuName" type="text" placeholder="请输入姓名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="radio-inline">
+                        <input type="radio" name="sex">男
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="sex">女
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="brithDate" class="control-label col-sm-2">出生日期</label>
+                    <div class="col-sm-10">
+<!--                        <input name = "brithDate" class="form-control" type="datetime-local">-->
+                        <input name = "brithDate" class="form-control" type="date">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="native" class="control-label col-sm-2">籍贯</label>
+                    <div class="col-sm-10">
+                        <input name = "native" class="form-control" type="text" placeholder="请输入籍贯">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="entranceTime" class="control-label col-sm-2">入学日期</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="entranceTime" type="date">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="politicalFee" class="control-label col-sm-2">政治面貌</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="politicalFee" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="perPhone" class="control-label col-sm-2">个人电话</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="perPhone" type="tel" maxlength="11">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idNum" class="control-label col-sm-2">身份证号</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="idNum" type="text" maxlength="18">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="classId" class="control-label col-sm-2">班级id</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="classId" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dormitoryId" class="control-label col-sm-2">宿舍id</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="dormitoryId" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="national" class="control-label col-sm-2">民族</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="national" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="employmcntStatus" class="control-label col-sm-2">就业情况</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="employmcntStatus" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hPhone" class="control-label col-sm-2">家庭电话</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="hPhone" type="tel">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="control-label col-sm-2">家庭地址</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="address" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-info">添加</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

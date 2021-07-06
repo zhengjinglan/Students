@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+  {% load bootstrap3 %}
+  {% bootstrap_javascript %}
+  {% bootstrap_css %}
+</head>
+<body role="document">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/student_manage/">Student Manage System</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">学生信息管理</a> </li>
+
+        </ul>
+        <ul class=" nav navbar-nav navbar-right">
+          <li><a href="#">{{ user }}</a> </li>
+          <li><a href="/logout">退出</a> </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="row" style="padding-top :80px; padding-left: 50px;">
+    <div>
+      <a href="/student_add/">添加学生</a>
+    </div>
+<!--    学生列表-->
+    <div class="col-md-6">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>学号</th>
+          <th>姓名</th>
+          <th>性别</th>
+          <th>出生日期</th>
+          <th>入学时间</th>
+          <th>个人电话</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for stu in students %}
+        <tr>
+          <td>{{ stu.StuID }}</td>
+          <td>{{ stu.StuName }}</td>
+          <td>{{ stu.Sex }}</td>
+          <td>{{ stu.BrithDate }}</td>
+          <td>{{ stu.EntranceTime }}</td>
+          <td>{{ stu.PerPhone }}</td>
+          <td>
+            <button type="button" class="btn vtn-sm btn-danger">
+<!--              <i class="icon-trash"></i>-->
+              <a href="/api/del_student/?stuId={{stu.StuID}}" style="color: white">删除</a>
+            </button>
+            <button type="button" class="btn btn-info" style="margin-top:1px">
+<!--              <i class="icon-trash"></i>-->
+              <a href="/student_update/?stuId={{stu.StuID}}" style="color: white">修改</a>
+            </button>
+          </td>
+        </tr>
+
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
